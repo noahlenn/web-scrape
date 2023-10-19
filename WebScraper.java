@@ -15,6 +15,8 @@ public class WebScraper {
             // Hent overskrifter fra siden
             //Elements headers = document.select("h1, h2, h3, h4, h5, h6");
             Elements headers = document.select("h2");
+
+            //System.out.println(headers.size());
             
             // Print ut all informasjon med headers
             for (Element header : headers) {
@@ -23,6 +25,19 @@ public class WebScraper {
         } catch (Exception e) {
             System.out.println(e);    
         }
+
+        /*
+        // psuedokode nye artikler etter første henting av artikler
+        while(true){
+            try {
+            //finn nye artikler
+
+            //sleep 15sek
+            }
+
+        }
+         */
+
    }
    
 }
