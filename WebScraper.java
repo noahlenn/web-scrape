@@ -5,14 +5,16 @@ import org.jsoup.select.Elements;
 
 
 public class WebScraper {
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
 
         try {
             String url = "https://www.vg.no/";
             Document document = Jsoup.connect(url).get();
             
-            // Hent alle overskrifter fra siden
-            Elements headers = document.select("h1, h2, h3, h4, h5, h6");
+            // Hent overskrifter fra siden
+            //Elements headers = document.select("h1, h2, h3, h4, h5, h6");
+            Elements headers = document.select("h2");
             
             // Print ut all informasjon med headers
             for (Element header : headers) {
@@ -21,7 +23,6 @@ public class WebScraper {
         } catch (Exception e) {
             System.out.println(e);    
         }
-
-    }
-    
+   }
+   
 }
