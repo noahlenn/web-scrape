@@ -15,7 +15,7 @@ public class JsoupTester {
             // Prøver å finne publiseringstidspunkt for artikler
             //Elements timestamps = document.select("data-published");
             //Elements timestamps = document.select("data-published-iso");
-            Elements timestamps = document.select("firstPublished");
+            //Elements timestamps = document.select("firstPublished");
 
             if (timestamps.size() > 0) {
                 int i = 1;
