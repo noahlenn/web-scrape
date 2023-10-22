@@ -32,6 +32,7 @@ public class JsoupTester {
                             // Forsøker å parse JSON-data fra jsonContent ved hjelp av objectMapper
                             JsonNode jsonNode = objectMapper.readTree(jsonContent);
                             
+                            
                             // Sjekk om JSON-data inneholder "articleId"
                             if (jsonNode.has("articleId")) {
                                 JsonNode changesNode = jsonNode.get("changes");
@@ -39,8 +40,14 @@ public class JsoupTester {
                                     // Tid i ISO 8601 
                                     String timestamp = changesNode.get("firstPublished").asText();
 
-                                    // Ser om jeg får ut tidspunktene
-                                    System.out.println("Publiseringstidspunkt: " + timestamp);
+                                    // Sjekk om JSON-data inneholder "teaserText"
+                                    // Her kan vi finne tittelen
+                                    if (jsonNode.has("teaserText")) {
+                                        String title = jsonNode.get("teaserText").asText();
+                                        title = title.replace("\n", "");
+                                        System.out.println(timestamp);
+                                        System.out.println(title);
+                                    }
                                 }
                             }
                         } catch (Exception e) {
